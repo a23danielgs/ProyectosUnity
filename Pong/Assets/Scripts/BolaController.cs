@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+    AudioSource sfx;
 
+    [SerializeField] AudioClip sfxPaddel; 
     private Rigidbody2D rb; 
     [SerializeField] float force;
     [SerializeField] float delay;
@@ -14,6 +16,8 @@ public class BallController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        sfx = GetComponent<AudioSource>();
+
         rb = GetComponent<Rigidbody2D>();
         //throwBall();
         //Invoke("throwBall", delay);
@@ -46,8 +50,18 @@ public class BallController : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter2D(Collision2D other) {
+        string tag = other.gameObject.tag;
+        if(tag.Equals("Pala 1")||tag.Equals("Pala 2"))
+        {
+            sfx.clip = sfxPaddel;
+            sfx.Play();
+        }
+    }
+
    private void OnTriggerEnter2D(Collider2D collider){
     Debug.Log("Gol en " +collider.tag + "!!");
+
     if(collider.tag.Equals("Porteria Ezquerda")){
         gameManager.AddPointP1();
         StartCoroutine(throwBall(1));
@@ -55,8 +69,5 @@ public class BallController : MonoBehaviour
         gameManager.AddPointP2();
         StartCoroutine(throwBall(-1));
     }
-
-   
-    
    }
 }

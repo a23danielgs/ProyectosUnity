@@ -3051,7 +3051,7 @@ MonoBehaviour:
   sfxBrick: {fileID: 8300000, guid: 73099e33d1880b5a083bc6e06c1190e4, type: 3}
   sfxWall: {fileID: 8300000, guid: 894e7dac3e5b59d369922981c1e4021e, type: 3}
   sfxFail: {fileID: 8300000, guid: 8185e11364ecfc01cad865b71a427dd7, type: 3}
-  sfxNextLevel: {fileID: 0}
+  sfxNextLevel: {fileID: 8300000, guid: d1424963cdd1b5f2eb94b6f77f794fd5, type: 3}
   fuerzaIncrementada: 0.15
   pala: {fileID: 862985091}
 --- !u!58 &1389601297
